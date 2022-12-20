@@ -1,4 +1,4 @@
-package com.example.linebot.CIST2awJavawB;
+package com.example.linebot.AppBJ;
 
 public class Judge {
 

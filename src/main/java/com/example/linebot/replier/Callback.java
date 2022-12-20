@@ -1,5 +1,7 @@
 package com.example.linebot.replier;
 
+import com.example.linebot.AppBJ.SimpleBJ;
+
 import com.example.linebot.replier.Follow;
 import com.linecorp.bot.model.event.FollowEvent;
 import com.linecorp.bot.model.message.Message;
@@ -56,6 +58,8 @@ public class Callback {
             case REMINDER:
                 RemindOn reminderOn = reminderService.doReplyOfNewItem(event);
                 return reminderOn.reply();
+            case BJAPPLICATION:
+                return SimpleBJ.main;
             case UNKNOWN:
 
             default:
