@@ -11,7 +11,7 @@ public class Card {
     }
 
     public void print(){
-        System.out.println(mark + "の" + number);
+        System.out.println(mark + " " + number);
     }
 
     public int getNumber(){

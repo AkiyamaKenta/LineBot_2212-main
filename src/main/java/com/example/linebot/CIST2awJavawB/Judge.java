@@ -2,8 +2,8 @@ package com.example.linebot.CIST2awJavawB;
 
 public class Judge {
 
-    private int psum;
-    private int csum;
+    public int psum;
+    public int csum;
 
 
     public Judge(int psum, int csum) {
@@ -16,13 +16,13 @@ public class Judge {
         System.out.println(psum);
         System.out.println(csum);
         if (psum > 21 && csum > 21) {
-            System.out.println("どっちも負け");
+            System.out.println("bursted.");
         } else if (psum > csum && psum <= 21 || csum > 21) {
-            System.out.println("プレイヤーの勝ち");
+            System.out.println("player won.");
         } else if (psum == csum) {
-            System.out.println("あいこ");
+            System.out.println("draw.");
         } else if (csum > psum && csum <= 21 || psum > 21) {
-            System.out.println("CPUの勝ち");
+            System.out.println("computer won.");
         }
     }
 }

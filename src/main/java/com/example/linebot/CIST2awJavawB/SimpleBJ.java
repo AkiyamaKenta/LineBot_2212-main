@@ -29,6 +29,7 @@ public class SimpleBJ {
 
         com.add(deck.drawCard(r.nextInt(deck.getLength())));
         com.add(deck.drawCard(r.nextInt(deck.getLength())));
+
         Judge judge = new Judge(pl1.count(), com.count());
         judge.judgement();
 
