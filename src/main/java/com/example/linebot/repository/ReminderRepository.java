@@ -4,10 +4,9 @@ import com.example.linebot.value.ReminderItem;
 import com.example.linebot.value.ReminderSlot;
 import com.example.linebot.value.ReminderTuple;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.jdbc.core.DataClassRowMapper;
 import java.time.LocalTime;
 import java.util.List;
 

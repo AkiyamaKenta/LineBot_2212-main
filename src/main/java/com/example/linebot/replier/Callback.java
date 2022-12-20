@@ -1,19 +1,22 @@
 package com.example.linebot.replier;
 
-//import com.example.linebot.service.CovidGovService;
-import com.example.linebot.service.ReminderService;
-//import com.example.linebot.service.StoreSalesPredictionService;
+import com.example.linebot.replier.Follow;
 import com.linecorp.bot.model.event.FollowEvent;
-import com.linecorp.bot.model.event.MessageEvent;
-import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
+import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.event.MessageEvent;
+import com.example.linebot.replier.Parrot;
+import com.example.linebot.replier.Intent;
+import com.example.linebot.service.ReminderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 
 @LineMessageHandler
@@ -21,16 +24,8 @@ public class Callback {
 
     private static final Logger log = LoggerFactory.getLogger(Callback.class);
     private final ReminderService reminderService;
-//    private final CovidGovService covidGovService;
-//    private final StoreSalesPredictionService storeSalesPredictionService;
 
     @Autowired
-//    public Callback(ReminderService reminderService, CovidGovService covidGovService, StoreSalesPredictionService storeSalesPredictionService){
-//        this.reminderService = reminderService;
-//        this.covidGovService = covidGovService;
-//        this.storeSalesPredictionService = storeSalesPredictionService;
-//    }
-
     public Callback(ReminderService reminderService){
         this.reminderService = reminderService;
     }
@@ -61,15 +56,6 @@ public class Callback {
             case REMINDER:
                 RemindOn reminderOn = reminderService.doReplyOfNewItem(event);
                 return reminderOn.reply();
-//            case COVID_TOTAL:
-//                CovidReport covidReport = covidGovService.doReplyWithCovid(event);
-//                return covidReport.reply();
-//            case COVID_INCREASE:
-//                CovidCalcIncreaseRate covidCalcIncreaseRate = covidGovService.doReplyWithCovid2(event);
-//                return covidCalcIncreaseRate.reply();
-//            case SSPSRESULT:
-//                SSPReport sspReport = storeSalesPredictionService.doReplyWithURL(event);
-//                return sspReport.reply();
             case UNKNOWN:
 
             default:

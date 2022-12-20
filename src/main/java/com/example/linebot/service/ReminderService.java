@@ -1,17 +1,16 @@
 package com.example.linebot.service;
 
 import com.example.linebot.replier.RemindOn;
-import com.example.linebot.repository.ReminderRepository;
 import com.example.linebot.value.ReminderItem;
 import com.example.linebot.value.ReminderSlot;
 import com.example.linebot.value.ReminderTuple;
-import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.message.TextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.example.linebot.repository.ReminderRepository;
 import java.util.List;
 
 @Service
@@ -25,23 +24,16 @@ public class ReminderService {
     }
 
     //下位モジュール←リスト作成に関するもの
-    public List<PushMessage> doPushBJItems(){
+    public List<PushMessage> doPushReminderItems(){
         List<ReminderTuple> ReminderTuples = repository.findPreviousItems();//<1>
-            repository.findPreviousItems(); //<1>
-            repository.deletePreviousItems();
+        repository.findPreviousItems(); //<1>
+        repository.deletePreviousItems();
 
         List<PushMessage>pushMessages = ReminderTuples.stream()
                 .map(tuple -> toPushMessage(tuple))
                 .toList(); //<2>
 
-        //List<PushMessage> pushMessages = new ArrayList<>();   <2>
-        //for (ReminderTuple tuple : ReminderTuples) {
-        //    PushMessage pushMessage = toPushMessage(tuple);
-        //    pushMessages.add(pushMessage);
-        //}
-
-
-            return pushMessages;
+        return pushMessages;
     }
     //下位モジュール←出力に関係するもの
     public PushMessage toPushMessage(ReminderTuple tuple){ //<3>

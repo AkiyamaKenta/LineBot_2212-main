@@ -1,6 +1,5 @@
 package com.example.linebot;
 
-import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.example.linebot.service.ReminderService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import com.linecorp.bot.client.LineMessagingClient;
+import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.message.TextMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,5 +68,4 @@ public class MessagePush {
         }
 
     }
-
 }
