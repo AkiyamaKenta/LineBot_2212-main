@@ -8,7 +8,7 @@ public enum Intent {
 
     // メッセージの正規表現パターンに対応するやり取りの定義
     REMINDER("^(\\d{1,2}):(\\d{1,2})に(.{1,32})$"),
-    BJAPPLICATION("BJApp"),
+    BJAPPLICATION("BJ"),
     UNKNOWN(".+");
 
 

@@ -2,6 +2,7 @@ package com.example.linebot.replier;
 
 import com.example.linebot.AppBJ.SimpleBJ;
 
+import com.example.linebot.BJapp.Blackjack;
 import com.example.linebot.replier.Follow;
 import com.linecorp.bot.model.event.FollowEvent;
 import com.linecorp.bot.model.message.Message;
@@ -20,6 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+
+import com.example.linebot.BJapp.Blackjack;
 
 @LineMessageHandler
 public class Callback {
@@ -59,7 +62,8 @@ public class Callback {
                 RemindOn reminderOn = reminderService.doReplyOfNewItem(event);
                 return reminderOn.reply();
             case BJAPPLICATION:
-                return SimpleBJ.main;
+                Blackjack blackjack = new Blackjack();
+                blackjack.start();
             case UNKNOWN:
 
             default:
